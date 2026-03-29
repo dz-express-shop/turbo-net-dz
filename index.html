@@ -7,79 +7,40 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --primary-blue: #0ea5e9; 
-            --dark-blue: #0f172a; 
-            --card-bg: #1e293b; 
-            --success-green: #10b981;
-        }
-        body { 
-            font-family: 'Tajawal', sans-serif; 
-            background-color: var(--dark-blue); 
-            color: #f8fafc; 
-            overflow-x: hidden; 
-            scroll-behavior: smooth; 
-            padding-bottom: 90px; 
-        }
-        
-        /* Premium Typography Gradients */
+        :root { --primary-blue: #0ea5e9; --dark-blue: #0f172a; --card-bg: #1e293b; --success-green: #10b981; }
+        body { font-family: 'Tajawal', sans-serif; background-color: var(--dark-blue); color: #f8fafc; overflow-x: hidden; scroll-behavior: smooth; padding-bottom: 90px; }
         .text-gradient-blue { background: linear-gradient(135deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .text-gradient-green { background: linear-gradient(135deg, #34d399, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
-        /* Modern Glass Cards */
-        .glass-card { 
-            background: rgba(30, 41, 59, 0.7); 
-            backdrop-filter: blur(12px); 
-            -webkit-backdrop-filter: blur(12px); 
-            border: 1px solid rgba(255, 255, 255, 0.08); 
-            border-radius: 24px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+        .glass-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .glass-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(14, 165, 233, 0.15); }
-        
-        /* Image Wrappers */
         .img-wrapper { border-radius: 16px; overflow: hidden; position: relative; }
         .img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
         .glass-card:hover .img-wrapper img { transform: scale(1.05); }
-        
-        /* Buy Button Pulse */
-        .btn-buy { 
-            background: linear-gradient(135deg, #10b981, #059669); 
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
-            animation: pulse-green 2s infinite; 
-        }
-        @keyframes pulse-green {
-            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
-            70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-        }
-
-        /* Scroll Animations */
+        .btn-buy { background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); animation: pulse-green 2s infinite; }
+        @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); } 70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
         .js-reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); }
         .js-reveal.is-visible { opacity: 1; transform: translateY(0); }
-
-        /* Form Styling */
-        .input-elegant { 
-            background: rgba(15, 23, 42, 0.6); 
-            border: 1px solid rgba(148, 163, 184, 0.2); 
-            color: white; 
-            transition: all 0.3s ease; 
-        }
-        .input-elegant:focus { 
-            border-color: var(--primary-blue); 
-            background: rgba(14, 165, 233, 0.05); 
-            outline: none; 
-            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2); 
-        }
-        
-        /* Background Ambient Glows */
+        .input-elegant { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(148, 163, 184, 0.2); color: white; transition: all 0.3s ease; }
+        .input-elegant:focus { border-color: var(--primary-blue); background: rgba(14, 165, 233, 0.05); outline: none; box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2); }
         .ambient-glow { position: absolute; border-radius: 50%; filter: blur(100px); z-index: -1; opacity: 0.3; }
-        
-        /* Loader */
         .loader { border: 3px solid rgba(255,255,255,0.3); border-top: 3px solid white; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; display: none; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
+
+    <!-- ========================================== -->
+    <!-- TIKTOK PIXEL BASE CODE (DO NOT MODIFY EXCEPT ID) -->
+    <!-- ========================================== -->
+    <script>
+        !function (w, d, t) {
+          w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+          
+          // حط الـ ID تاع البيكسل تاعك هنا بين الشلطات المزدوجة
+          ttq.load('YOUR_TIKTOK_PIXEL_ID'); 
+          ttq.page();
+        }(window, document, 'ttq');
+    </script>
+    <!-- ========================================== -->
+
 </head>
 <body class="selection:bg-sky-500 selection:text-white">
 
@@ -87,7 +48,7 @@
     <div class="ambient-glow" style="top: -5%; left: -10%; width: 400px; height: 400px; background: #0ea5e9;"></div>
     <div class="ambient-glow" style="top: 40%; right: -20%; width: 500px; height: 500px; background: #8b5cf6; opacity: 0.15;"></div>
 
-    <!-- 1. HEADER & HERO (Professional & Trustworthy) -->
+    <!-- 1. HEADER & HERO -->
     <header class="relative px-5 pt-8 pb-16 text-center">
         <div class="inline-flex items-center justify-center gap-2 px-6 py-2 mb-8 text-sm font-bold text-sky-100 bg-sky-900/40 border border-sky-500/30 rounded-full js-reveal">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -106,8 +67,7 @@
         <!-- Main Product Presentation -->
         <div class="relative w-full max-w-md mx-auto mb-12 js-reveal">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10 rounded-[2rem] opacity-20"></div>
-            <!-- High Quality Tech Image replacing local file -->
-            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=800" alt="Aigital WiFi Repeater" class="w-full h-auto rounded-[2rem] border border-slate-700 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            <img src="513cVrhtHeL._AC_SL1500_.jpg" alt="Aigital WiFi Repeater" class="w-full h-auto rounded-[2rem] border border-slate-700 shadow-[0_20px_50px_rgba(0,0,0,0.5)] bg-white object-contain p-4">
             
             <!-- Professional Price Badge -->
             <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-800 text-white px-8 py-3 rounded-full border border-slate-600 shadow-xl z-20 w-[80%] max-w-[250px]">
@@ -126,7 +86,7 @@
         </a>
     </header>
 
-    <!-- 2. FEATURES (Clear, Professional Explanations) -->
+    <!-- 2. FEATURES -->
     <section class="py-16 px-5 relative z-10 bg-slate-900/50 border-t border-slate-800">
         <div class="text-center mb-14 js-reveal">
             <h2 class="text-3xl md:text-4xl font-black mb-4">وداعاً لمشاكل الانقطاع والتأخير</h2>
@@ -134,11 +94,9 @@
         </div>
         
         <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 lg:gap-8">
-            
-            <!-- Feature 1: Coverage -->
             <div class="glass-card p-6 js-reveal">
                 <div class="img-wrapper h-48 mb-5">
-                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=600" alt="House Coverage">
+                    <img src="81Z4Ov+tQmL._AC_SL1500_.jpg" alt="House Coverage">
                     <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10">
                         <span class="font-bold text-white">تغطية 120m² 🏠</span>
                     </div>
@@ -147,10 +105,9 @@
                 <p class="text-slate-400 font-medium leading-relaxed">هل الموزع الرئيسي بعيد عن غرفتك؟ الجهاز يلتقط الإشارة الضعيفة ويعيد بثها بقوة لتخترق الجدران وتصل إلى كافة الطوابق بوضوح تام.</p>
             </div>
 
-            <!-- Feature 2: Speed & Gaming -->
             <div class="glass-card p-6 js-reveal">
                 <div class="img-wrapper h-48 mb-5">
-                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=600" alt="Gaming & Streaming">
+                    <img src="71+NVc3Jz6L._AC_SL1500_.jpg" alt="Gaming & Streaming">
                     <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10">
                         <span class="font-bold text-sky-400">سرعة 300Mbps ⚡</span>
                     </div>
@@ -159,10 +116,9 @@
                 <p class="text-slate-400 font-medium leading-relaxed">استمتع بمشاهدة قنوات الـ IPTV بدقة عالية، والعب ألعابك المفضلة على الإنترنت بـ Ping منخفض جداً، دون تقطيع أو توقف في اللحظات الحاسمة.</p>
             </div>
 
-            <!-- Feature 3: Multiple Devices -->
             <div class="glass-card p-6 js-reveal">
                 <div class="img-wrapper h-48 mb-5">
-                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=600" alt="Multiple Devices">
+                    <img src="71Xiwt97AyL._AC_SL1500_.jpg" alt="Multiple Devices">
                     <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10">
                         <span class="font-bold text-emerald-400">30 جهاز معاً 📱</span>
                     </div>
@@ -171,11 +127,9 @@
                 <p class="text-slate-400 font-medium leading-relaxed">اربط الهواتف الذكية، التلفاز الذكي، الحواسيب المحمولة وكاميرات المراقبة في نفس الوقت. الجهاز مزود بشريحة ذكية لتوزيع السرعة بانتظام.</p>
             </div>
 
-            <!-- Feature 4: Ethernet Port -->
             <div class="glass-card p-6 js-reveal">
-                <div class="img-wrapper h-48 mb-5 bg-slate-800 flex items-center justify-center p-6 border border-slate-700">
-                    <!-- Clean SVG Icon for Ethernet instead of generic image for better professional look -->
-                    <svg class="w-24 h-24 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
+                <div class="img-wrapper h-48 mb-5 bg-white flex items-center justify-center p-2 border border-slate-700">
+                    <img src="61Ohb-z9ImL._AC_SL1500_.jpg" class="w-full h-full object-contain" alt="Ethernet Port">
                     <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10">
                         <span class="font-bold text-white">منفذ RJ45 🔌</span>
                     </div>
@@ -183,17 +137,19 @@
                 <h3 class="text-xl font-bold text-white mb-2">منفذ إيثرنت سريع</h3>
                 <p class="text-slate-400 font-medium leading-relaxed">تحتاج لاتصال مباشر وثابت 100%؟ قم بتوصيل كابل من المقوي إلى حاسوبك المكتبي أو جهاز البلايستيشن للحصول على أقصى سرعة ممكنة.</p>
             </div>
-
         </div>
     </section>
 
-    <!-- 3. HOW TO USE (Simple 3-Step Process) -->
+    <!-- 3. HOW TO USE -->
     <section class="py-20 px-5 bg-slate-900 relative">
         <div class="max-w-4xl mx-auto js-reveal">
             <h2 class="text-3xl md:text-4xl font-black text-center mb-12">تركيب بسيط <span class="text-gradient-blue">في 30 ثانية</span></h2>
             
+            <div class="img-wrapper w-full max-w-2xl mx-auto mb-10 rounded-2xl overflow-hidden border-2 border-slate-700">
+                <img src="71prT-Xj4qL._AC_SL1500_.jpg" alt="Installation Guide" class="w-full h-auto">
+            </div>
+
             <div class="grid md:grid-cols-3 gap-8 text-center relative">
-                <!-- Connecting Line (Desktop only) -->
                 <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-1 bg-slate-800 rounded-full z-0">
                     <div class="h-full bg-sky-500 w-full opacity-30"></div>
                 </div>
@@ -219,7 +175,7 @@
         </div>
     </section>
 
-    <!-- 4. SOCIAL PROOF (Trust & Real Reviews) -->
+    <!-- 4. SOCIAL PROOF -->
     <section class="py-16 px-5 bg-slate-800/30 border-y border-slate-800">
         <div class="text-center mb-12 js-reveal">
             <h2 class="text-3xl md:text-4xl font-black text-white mb-4">عملاء يثقون بجودتنا 🌟</h2>
@@ -229,7 +185,7 @@
         <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
             <div class="glass-card p-6 js-reveal">
                 <div class="flex items-center gap-4 mb-4 border-b border-slate-700 pb-4">
-                    <div class="w-12 h-12 bg-sky-900 text-sky-300 rounded-full flex items-center justify-center font-black text-xl">خ</div>
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?fit=crop&w=100&h=100" class="w-12 h-12 rounded-full object-cover border-2 border-sky-500" alt="Khaled">
                     <div>
                         <p class="font-bold text-white">خالد (وهران)</p>
                         <div class="text-emerald-400 text-xs tracking-widest mt-1">★★★★★ <span class="text-slate-400 font-normal mr-1">مشتري مؤكد</span></div>
@@ -242,7 +198,7 @@
 
             <div class="glass-card p-6 js-reveal">
                 <div class="flex items-center gap-4 mb-4 border-b border-slate-700 pb-4">
-                    <div class="w-12 h-12 bg-purple-900 text-purple-300 rounded-full flex items-center justify-center font-black text-xl">أ</div>
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?fit=crop&w=100&h=100" class="w-12 h-12 rounded-full object-cover border-2 border-purple-500" alt="Amina">
                     <div>
                         <p class="font-bold text-white">أمينة (الجزائر العاصمة)</p>
                         <div class="text-emerald-400 text-xs tracking-widest mt-1">★★★★★ <span class="text-slate-400 font-normal mr-1">مشتري مؤكد</span></div>
@@ -255,7 +211,7 @@
 
             <div class="glass-card p-6 js-reveal">
                 <div class="flex items-center gap-4 mb-4 border-b border-slate-700 pb-4">
-                    <div class="w-12 h-12 bg-emerald-900 text-emerald-300 rounded-full flex items-center justify-center font-black text-xl">س</div>
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=100&h=100" class="w-12 h-12 rounded-full object-cover border-2 border-emerald-500" alt="Samir">
                     <div>
                         <p class="font-bold text-white">سمير (سطيف)</p>
                         <div class="text-emerald-400 text-xs tracking-widest mt-1">★★★★☆ <span class="text-slate-400 font-normal mr-1">مشتري مؤكد</span></div>
@@ -268,7 +224,7 @@
         </div>
     </section>
 
-    <!-- 5. ACTION (Professional Checkout Form integrated with Google Sheets) -->
+    <!-- 5. ACTION (Checkout Form) -->
     <section id="order-form" class="py-20 px-5 relative">
         <div class="max-w-md mx-auto glass-card rounded-[2rem] p-6 md:p-8 border-t-4 border-t-emerald-500 relative z-10 js-reveal">
             
@@ -287,13 +243,10 @@
                 </div>
             </div>
 
-            <!-- THE FORM (With Hidden Inputs for Google Sheets integration) -->
+            <!-- THE FORM -->
             <form id="orderForm" class="space-y-5">
-                <!-- ========================================== -->
-                <!-- HIDDEN INPUTS FOR GOOGLE SHEETS            -->
                 <input type="hidden" name="product" value="Aigital WiFi Repeater 300Mbps">
                 <input type="hidden" name="price" value="4900 دج">
-                <!-- ========================================== -->
 
                 <div>
                     <label class="block text-slate-300 text-sm font-bold mb-2 pr-1">الاسم واللقب <span class="text-red-400">*</span></label>
@@ -316,14 +269,12 @@
                     </div>
                 </div>
 
-                <!-- Submit Button -->
                 <button type="submit" id="submitBtn" class="w-full btn-buy text-white font-black text-xl py-5 rounded-xl mt-6 transition-all flex justify-center items-center gap-3">
                     <span id="btnText">تأكيد الطلب الآن</span>
                     <div id="loader" class="loader"></div>
                 </button>
             </form>
 
-            <!-- Success Message -->
             <div id="successMessage" class="hidden text-center py-8">
                 <div class="w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-5 border-2 border-emerald-500">
                     <svg class="w-10 h-10 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
@@ -332,7 +283,6 @@
                 <p class="text-slate-300 font-medium text-sm leading-relaxed">شكراً لثقتك بنا. سيقوم فريق الدعم بالاتصال بك قريباً لتأكيد عنوان الشحن.</p>
             </div>
 
-            <!-- Trust Indicators -->
             <div class="mt-8 pt-6 border-t border-slate-700 flex justify-center gap-6 md:gap-8 opacity-80">
                 <div class="flex flex-col items-center">
                     <svg class="w-6 h-6 text-slate-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
@@ -361,7 +311,7 @@
         </a>
     </div>
 
-    <!-- Live Sales Popup (Subtle & Professional) -->
+    <!-- Live Sales Popup -->
     <div id="live-sales-popup" class="fixed bottom-24 left-4 z-30 bg-slate-800/90 backdrop-blur-md border border-slate-700 rounded-xl p-3 flex items-center gap-3 shadow-xl transition-all duration-500 translate-y-20 opacity-0 pointer-events-none">
         <div class="bg-emerald-500/20 p-2 rounded-full">
             <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
@@ -386,8 +336,8 @@
         }, revealOptions);
         reveals.forEach(reveal => { revealOnScroll.observe(reveal); });
 
-        // 2. Google Sheets Checkout Logic
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwBBFuHmwCbK5S1R4wrg9j2Memsi5XtHXmy6ETXFGFkmnBBlTTmGcHskyhYPH2vX4V3hw/exec'; // <-- حط الرابط تاع الـ Apps Script تاعك هنا
+        // 2. Google Sheets & TIKTOK PIXEL Logic
+        const scriptURL = 'YOUR_GOOGLE_SCRIPT_URL_HERE'; // <-- حط الرابط تاع الـ Apps Script تاعك هنا
         const form = document.getElementById('orderForm');
         const submitBtn = document.getElementById('submitBtn');
         const btnText = document.getElementById('btnText');
@@ -406,6 +356,18 @@
                 .then(response => {
                     form.style.display = 'none';
                     successMessage.classList.remove('hidden');
+                    
+                    // ==========================================
+                    // TIKTOK PIXEL CONVERSION EVENT (CompletePayment)
+                    // ==========================================
+                    if(typeof ttq !== 'undefined') {
+                        ttq.track('CompletePayment', {
+                            content_name: 'Aigital WiFi Repeater 300Mbps',
+                            value: 4900,
+                            currency: 'DZD'
+                        });
+                    }
+                    // ==========================================
                 })
                 .catch(error => {
                     alert('عذراً، حدث خطأ أثناء الاتصال. يرجى المحاولة مرة أخرى.');
