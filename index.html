@@ -3,341 +3,529 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Aigital 300Mbps | انترنت سريع في كل زاوية</title>
+    <title>Aigital 300Mbps | قل وداعاً لضعف الإنترنت</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Ultra Premium Fonts: Lalezar (Headlines) & Almarai (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Lalezar&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --primary-blue: #0ea5e9; --dark-blue: #0f172a; --card-bg: #1e293b; --success-green: #10b981; }
-        body { font-family: 'Tajawal', sans-serif; background-color: var(--dark-blue); color: #f8fafc; overflow-x: hidden; scroll-behavior: smooth; padding-bottom: 90px; }
-        .text-gradient-blue { background: linear-gradient(135deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .text-gradient-green { background: linear-gradient(135deg, #34d399, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .glass-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .glass-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(14, 165, 233, 0.15); }
-        .img-wrapper { border-radius: 16px; overflow: hidden; position: relative; }
-        .img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .glass-card:hover .img-wrapper img { transform: scale(1.05); }
-        .btn-buy { background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); animation: pulse-green 2s infinite; }
-        @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); } 70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
-        .js-reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); }
-        .js-reveal.is-visible { opacity: 1; transform: translateY(0); }
-        .input-elegant { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(148, 163, 184, 0.2); color: white; transition: all 0.3s ease; }
-        .input-elegant:focus { border-color: var(--primary-blue); background: rgba(14, 165, 233, 0.05); outline: none; box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2); }
-        .ambient-glow { position: absolute; border-radius: 50%; filter: blur(100px); z-index: -1; opacity: 0.3; }
-        .loader { border: 3px solid rgba(255,255,255,0.3); border-top: 3px solid white; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; display: none; }
+        :root { 
+            --tech-violet: #8b5cf6; 
+            --tech-pink: #ec4899;
+            --dark-slate: #020617; 
+            --card-glass: rgba(15, 23, 42, 0.7); 
+            --gold-action: #f59e0b;
+        }
+        body { 
+            font-family: 'Almarai', sans-serif; 
+            background-color: var(--dark-slate); 
+            color: #f8fafc; 
+            overflow-x: hidden; 
+            scroll-behavior: smooth; 
+            padding-bottom: 90px; 
+            background-image: radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+        }
+        
+        /* Font Classes */
+        .font-headline { font-family: 'Lalezar', system-ui; letter-spacing: 0.5px; }
+        
+        /* Advanced Gradients */
+        .text-gradient-magic { background: linear-gradient(135deg, #a78bfa, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .text-gradient-gold { background: linear-gradient(135deg, #fcd34d, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Ultra Premium Glassmorphism */
+        .glass-card { 
+            background: var(--card-glass); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            border-radius: 28px; 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); 
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover { transform: translateY(-8px); border-color: rgba(139, 92, 246, 0.3); box-shadow: 0 30px 60px -12px rgba(139, 92, 246, 0.2); }
+        
+        /* Image Context Wrappers (Replacing Amazon Images) */
+        .context-img { border-radius: 20px; overflow: hidden; position: relative; }
+        .context-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(2,6,23,0.9) 0%, transparent 60%); }
+        .context-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s ease; }
+        .glass-card:hover .context-img img { transform: scale(1.08); }
+        
+        /* Gold Action Button */
+        .btn-gold { 
+            background: linear-gradient(135deg, #fbbf24, #d97706); 
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+            color: #020617;
+            animation: pulse-gold 2s infinite; 
+            transition: all 0.3s ease;
+        }
+        .btn-gold:active { transform: scale(0.95); }
+        @keyframes pulse-gold {
+            0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.6); }
+            70% { box-shadow: 0 0 0 20px rgba(245, 158, 11, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+        }
+
+        /* Advanced Floating Label Inputs */
+        .input-group { position: relative; margin-bottom: 1.5rem; }
+        .input-advanced { 
+            width: 100%; padding: 1.25rem 1rem 0.5rem; 
+            background: rgba(2, 6, 23, 0.6); 
+            border: 2px solid rgba(148, 163, 184, 0.1); 
+            border-radius: 16px; color: white; 
+            font-size: 1rem; font-weight: 700; transition: all 0.3s; 
+        }
+        .input-advanced:focus { border-color: var(--tech-violet); outline: none; background: rgba(139, 92, 246, 0.05); }
+        .input-label { 
+            position: absolute; top: 50%; right: 1rem; transform: translateY(-50%); 
+            color: #94a3b8; font-size: 1rem; transition: all 0.3s; pointer-events: none; 
+        }
+        .input-advanced:focus + .input-label, .input-advanced:not(:placeholder-shown) + .input-label { 
+            top: 0.5rem; font-size: 0.75rem; color: var(--tech-violet); font-weight: 700;
+        }
+
+        /* Notification Popup (iOS Style) */
+        .push-notification {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-150%);
+            background: rgba(30, 41, 59, 0.95); backdrop-filter: blur(10px);
+            border-radius: 20px; padding: 12px 20px; width: 90%; max-w: 350px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.1);
+            display: flex; align-items: center; gap: 15px; z-index: 100;
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .push-notification.show { transform: translateX(-50%) translateY(0); }
+        
+        /* Reveal Animation */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Loader */
+        .loader { border: 3px solid rgba(2,6,23,0.3); border-top: 3px solid #020617; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; display: none; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* Shimmer Effect for Images */
+        .shimmer { position: relative; overflow: hidden; }
+        .shimmer::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+            transform: skewX(-20deg); animation: shimmer 3s infinite; z-index: 1;
+        }
+        @keyframes shimmer { 100% { left: 200%; } }
     </style>
 
     <!-- ========================================== -->
-    <!-- TIKTOK PIXEL BASE CODE (DO NOT MODIFY EXCEPT ID) -->
+    <!-- META PIXEL -->
+    <!-- ========================================== -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '880279101448547');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=880279101448547&ev=PageView&noscript=1"/></noscript>
+
+    <!-- ========================================== -->
+    <!-- TIKTOK PIXEL -->
     <!-- ========================================== -->
     <script>
         !function (w, d, t) {
           w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
           
-          // حط الـ ID تاع البيكسل تاعك هنا بين الشلطات المزدوجة
           ttq.load('D691NORC77U6HVGGO320'); 
           ttq.page();
         }(window, document, 'ttq');
     </script>
-    <!-- ========================================== -->
-
 </head>
-<body class="selection:bg-sky-500 selection:text-white">
+<body class="selection:bg-violet-500 selection:text-white">
 
-    <!-- Ambient Lights -->
-    <div class="ambient-glow" style="top: -5%; left: -10%; width: 400px; height: 400px; background: #0ea5e9;"></div>
-    <div class="ambient-glow" style="top: 40%; right: -20%; width: 500px; height: 500px; background: #8b5cf6; opacity: 0.15;"></div>
+    <!-- 1. LIVE PUSH NOTIFICATION (iOS Style) -->
+    <div id="push-noti" class="push-notification">
+        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?fit=crop&w=100&h=100" id="noti-img" class="w-12 h-12 rounded-full object-cover border-2 border-violet-500" alt="Buyer">
+        <div class="flex-1">
+            <div class="flex justify-between items-center mb-1">
+                <p id="noti-name" class="text-white text-sm font-bold">ياسين من البليدة</p>
+                <span class="text-xs text-gray-400">الآن</span>
+            </div>
+            <p class="text-violet-300 text-[11px] font-bold">قام بشراء مقوي الإشارة Aigital</p>
+        </div>
+    </div>
 
-    <!-- 1. HEADER & HERO -->
-    <header class="relative px-5 pt-8 pb-16 text-center">
-        <div class="inline-flex items-center justify-center gap-2 px-6 py-2 mb-8 text-sm font-bold text-sky-100 bg-sky-900/40 border border-sky-500/30 rounded-full js-reveal">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+    <!-- 2. ATTENTION (HERO SECTION) -->
+    <header class="relative px-4 pt-12 pb-20 text-center z-10">
+        <div class="inline-flex items-center justify-center gap-2 px-5 py-1.5 mb-8 text-xs font-bold text-violet-100 bg-violet-900/30 border border-violet-500/30 rounded-full reveal">
+            <span class="w-2.5 h-2.5 rounded-full bg-pink-500 animate-pulse shadow-[0_0_10px_rgba(236,72,153,0.8)]"></span>
             المنتج الأصلي بضمان الجودة
         </div>
         
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.4] mb-6 js-reveal">
-            الإنترنت لا يصل إلى غرفتك؟<br>
-            <span class="text-gradient-blue">ضاعف التغطية إلى 120m²</span>
+        <h1 class="text-5xl md:text-6xl lg:text-7xl leading-[1.3] mb-6 reveal font-headline text-white drop-shadow-2xl">
+            الكونيكسيو ميتة في الشومبرة؟<br>
+            <span class="text-gradient-magic">ضاعف قوة الويفي لـ 120m²</span>
         </h1>
         
-        <p class="text-slate-300 text-lg md:text-xl font-medium mb-10 max-w-2xl mx-auto leading-relaxed js-reveal">
-            جهاز <span class="font-bold text-white">Aigital 300Mbps</span> يوسع نطاق شبكتك الحالية، يخترق الجدران الإسمنتية، ويوفر اتصالاً مستقراً لـ <span class="text-emerald-400 font-bold">30 جهازاً</span> في نفس الوقت.
+        <p class="text-slate-300 text-base md:text-xl font-bold mb-12 max-w-2xl mx-auto leading-relaxed reveal">
+            لا مزيد من التقطيع أثناء المباريات أو الألعاب! جهاز <span class="font-black text-white bg-white/10 px-2 py-0.5 rounded">Aigital 300Mbps</span> يوسع إشارة المودام لتخترق الجدران وتصل لكل زوايا منزلك بثبات تام.
         </p>
 
-        <!-- Main Product Presentation -->
-        <div class="relative w-full max-w-md mx-auto mb-12 js-reveal">
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10 rounded-[2rem] opacity-20"></div>
-            <img src="513cVrhtHeL._AC_SL1500_.jpg" alt="Aigital WiFi Repeater" class="w-full h-auto rounded-[2rem] border border-slate-700 shadow-[0_20px_50px_rgba(0,0,0,0.5)] bg-white object-contain p-4">
+        <!-- Main Product Presentation (Replacing Amazon Image with Premium Composition) -->
+        <div class="relative w-full max-w-md mx-auto mb-14 reveal">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent z-10 rounded-[2rem] opacity-60"></div>
             
-            <!-- Professional Price Badge -->
-            <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-800 text-white px-8 py-3 rounded-full border border-slate-600 shadow-xl z-20 w-[80%] max-w-[250px]">
-                <p class="text-sm font-medium text-slate-400 mb-1">السعر الحصري:</p>
-                <div class="flex justify-center items-end gap-2">
-                    <span class="text-3xl font-black text-emerald-400">4900</span>
-                    <span class="text-lg font-bold pb-1 text-emerald-400">دج</span>
+            <div class="shimmer rounded-[2rem] border border-slate-800 shadow-[0_20px_50px_rgba(139,92,246,0.15)] bg-slate-900/50 p-6">
+                <!-- Using the best product image provided by user -->
+                <img src="https://m.media-amazon.com/images/I/513cVrhtHeL._AC_SL1500_.jpg" alt="Aigital WiFi Repeater" class="w-full h-64 md:h-80 object-contain drop-shadow-2xl relative z-0">
+            </div>
+            
+            <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-slate-900 text-white px-8 py-4 rounded-[2rem] border border-slate-700 shadow-2xl z-20 w-[90%] max-w-[300px] flex items-center justify-between">
+                <div class="text-right">
+                    <p class="text-[10px] font-bold text-pink-500 uppercase tracking-wider mb-1">عرض اليوم</p>
+                    <p class="text-xs font-bold text-slate-400 line-through">7500 دج</p>
                 </div>
-                <p class="text-xs font-bold text-slate-400 line-through mt-1">7500 دج</p>
+                <div class="flex items-end gap-1">
+                    <span class="text-4xl font-headline text-gradient-gold">4900</span>
+                    <span class="text-lg font-bold text-amber-500 pb-1">دج</span>
+                </div>
             </div>
         </div>
         
-        <a href="#order-form" class="inline-flex items-center justify-center gap-3 btn-buy text-white px-10 py-5 rounded-2xl font-black text-xl w-full max-w-sm mt-4 active:scale-95 transition-transform js-reveal">
-            أطلب الآن (توصيل مجاني)
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+        <a href="#order-form" class="inline-flex items-center justify-center gap-3 btn-gold px-10 py-5 rounded-2xl font-headline text-2xl w-full max-w-sm mt-6 reveal text-slate-900">
+            أطلب الجهاز الآن 🛒
         </a>
+        <p class="mt-4 text-emerald-400 font-bold text-sm reveal">🚚 توصيل مجاني لـ 58 ولاية</p>
     </header>
 
-    <!-- 2. FEATURES -->
-    <section class="py-16 px-5 relative z-10 bg-slate-900/50 border-t border-slate-800">
-        <div class="text-center mb-14 js-reveal">
-            <h2 class="text-3xl md:text-4xl font-black mb-4">وداعاً لمشاكل الانقطاع والتأخير</h2>
-            <p class="text-slate-400 font-medium text-lg max-w-2xl mx-auto">صمم جهاز Aigital خصيصاً ليناسب المنازل الكبيرة ويوفر تجربة تصفح وألعاب خالية من المتاعب.</p>
+    <!-- 3. INTEREST (Features with Unsplash Context Images) -->
+    <section class="py-20 px-5 relative z-10 bg-slate-900/40 border-t border-white/5">
+        <div class="text-center mb-16 reveal">
+            <h2 class="text-4xl md:text-5xl font-headline mb-4 text-white">لماذا يعتبر <span class="text-gradient-magic">Aigital</span> الحل الأمثل؟</h2>
+            <p class="text-slate-400 font-bold text-base md:text-lg max-w-2xl mx-auto">تصميم هندسي متطور لضمان وصول الإنترنت لكل زاوية في منزلك بأقصى سرعة ممكنة.</p>
         </div>
         
         <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 lg:gap-8">
-            <div class="glass-card p-6 js-reveal">
-                <div class="img-wrapper h-48 mb-5">
-                    <img src="81Z4Ov+tQmL._AC_SL1500_.jpg" alt="House Coverage">
-                    <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10">
-                        <span class="font-bold text-white">تغطية 120m² 🏠</span>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-2">تغطية شاملة لكل الغرف</h3>
-                <p class="text-slate-400 font-medium leading-relaxed">هل الموزع الرئيسي بعيد عن غرفتك؟ الجهاز يلتقط الإشارة الضعيفة ويعيد بثها بقوة لتخترق الجدران وتصل إلى كافة الطوابق بوضوح تام.</p>
-            </div>
-
-            <div class="glass-card p-6 js-reveal">
-                <div class="img-wrapper h-48 mb-5">
-                    <img src="71+NVc3Jz6L._AC_SL1500_.jpg" alt="Gaming & Streaming">
-                    <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10">
-                        <span class="font-bold text-sky-400">سرعة 300Mbps ⚡</span>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-2">تصفح وألعاب بدون Lag</h3>
-                <p class="text-slate-400 font-medium leading-relaxed">استمتع بمشاهدة قنوات الـ IPTV بدقة عالية، والعب ألعابك المفضلة على الإنترنت بـ Ping منخفض جداً، دون تقطيع أو توقف في اللحظات الحاسمة.</p>
-            </div>
-
-            <div class="glass-card p-6 js-reveal">
-                <div class="img-wrapper h-48 mb-5">
-                    <img src="71Xiwt97AyL._AC_SL1500_.jpg" alt="Multiple Devices">
-                    <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10">
-                        <span class="font-bold text-emerald-400">30 جهاز معاً 📱</span>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-2">يتحمل ضغط العائلة</h3>
-                <p class="text-slate-400 font-medium leading-relaxed">اربط الهواتف الذكية، التلفاز الذكي، الحواسيب المحمولة وكاميرات المراقبة في نفس الوقت. الجهاز مزود بشريحة ذكية لتوزيع السرعة بانتظام.</p>
-            </div>
-
-            <div class="glass-card p-6 js-reveal">
-                <div class="img-wrapper h-48 mb-5 bg-white flex items-center justify-center p-2 border border-slate-700">
-                    <img src="61Ohb-z9ImL._AC_SL1500_.jpg" class="w-full h-full object-contain" alt="Ethernet Port">
-                    <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10">
-                        <span class="font-bold text-white">منفذ RJ45 🔌</span>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-2">منفذ إيثرنت سريع</h3>
-                <p class="text-slate-400 font-medium leading-relaxed">تحتاج لاتصال مباشر وثابت 100%؟ قم بتوصيل كابل من المقوي إلى حاسوبك المكتبي أو جهاز البلايستيشن للحصول على أقصى سرعة ممكنة.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. HOW TO USE -->
-    <section class="py-20 px-5 bg-slate-900 relative">
-        <div class="max-w-4xl mx-auto js-reveal">
-            <h2 class="text-3xl md:text-4xl font-black text-center mb-12">تركيب بسيط <span class="text-gradient-blue">في 30 ثانية</span></h2>
             
-            <div class="img-wrapper w-full max-w-2xl mx-auto mb-10 rounded-2xl overflow-hidden border-2 border-slate-700">
-                <img src="71prT-Xj4qL._AC_SL1500_.jpg" alt="Installation Guide" class="w-full h-auto">
+            <!-- Context Feature 1: Coverage (Unsplash Image) -->
+            <div class="glass-card p-4 md:p-6 reveal">
+                <div class="context-img h-48 md:h-56 mb-6">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800" alt="House Coverage">
+                    <div class="absolute bottom-4 right-4 z-10">
+                        <span class="bg-violet-600/90 backdrop-blur-md text-white font-bold px-4 py-2 rounded-xl text-sm border border-violet-400/30 shadow-lg">تغطية 120m² 🏠</span>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-headline text-white mb-3">يخترق الجدران الإسمنتية</h3>
+                <p class="text-slate-400 font-bold text-sm leading-relaxed">بفضل الهوائيات المدمجة، يلتقط الإشارة الضعيفة ويعيد بثها بقوة لتتجاوز الحواجز وتصل إلى الغرف البعيدة والطوابق العلوية بوضوح تام.</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8 text-center relative">
-                <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-1 bg-slate-800 rounded-full z-0">
-                    <div class="h-full bg-sky-500 w-full opacity-30"></div>
+            <!-- Context Feature 2: Speed/Gaming (Unsplash Image) -->
+            <div class="glass-card p-4 md:p-6 reveal">
+                <div class="context-img h-48 md:h-56 mb-6">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800" alt="Gaming & Streaming">
+                    <div class="absolute bottom-4 right-4 z-10">
+                        <span class="bg-pink-600/90 backdrop-blur-md text-white font-bold px-4 py-2 rounded-xl text-sm border border-pink-400/30 shadow-lg">سرعة 300Mbps ⚡</span>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-headline text-white mb-3">تصفح وألعاب خالية من التقطيع</h3>
+                <p class="text-slate-400 font-bold text-sm leading-relaxed">استمتع بتجربة مشاهدة قنوات الـ IPTV بدقة عالية، والألعاب عبر الإنترنت بـ Ping منخفض جداً، دون توقف في اللحظات الحاسمة.</p>
+            </div>
+
+            <!-- Context Feature 3: Multiple Devices (Unsplash Image) -->
+            <div class="glass-card p-4 md:p-6 reveal">
+                <div class="context-img h-48 md:h-56 mb-6">
+                    <img src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?auto=format&fit=crop&q=80&w=800" alt="Family using devices">
+                    <div class="absolute bottom-4 right-4 z-10">
+                        <span class="bg-emerald-600/90 backdrop-blur-md text-white font-bold px-4 py-2 rounded-xl text-sm border border-emerald-400/30 shadow-lg">30 جهاز معاً 📱</span>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-headline text-white mb-3">يتحمل ضغط أجهزة العائلة</h3>
+                <p class="text-slate-400 font-bold text-sm leading-relaxed">اربط الهواتف الذكية، التلفاز، الحواسيب وكاميرات المراقبة في وقت واحد. الجهاز مزود بشريحة ذكية لتوزيع السرعة بانتظام للجميع.</p>
+            </div>
+
+            <!-- Context Feature 4: Ethernet Port (Unsplash Image) -->
+            <div class="glass-card p-4 md:p-6 reveal">
+                <div class="context-img h-48 md:h-56 mb-6">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800" alt="Ethernet Cable">
+                    <div class="absolute bottom-4 right-4 z-10">
+                        <span class="bg-amber-600/90 backdrop-blur-md text-white font-bold px-4 py-2 rounded-xl text-sm border border-amber-400/30 shadow-lg">منفذ RJ45 🔌</span>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-headline text-white mb-3">منفذ إيثرنت لاتصال سلكي مباشر</h3>
+                <p class="text-slate-400 font-bold text-sm leading-relaxed">يحتوي الجهاز على منفذ LAN مدمج يسمح لك بتوصيل أجهزة الكمبيوتر المكتبية أو الـ Consoles سلكياً للحصول على أقصى أداء (0 Lag).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. DESIRE (Visual Timeline for Installation - No foreign text) -->
+    <section class="py-20 px-5 bg-slate-950 relative overflow-hidden">
+        <!-- Abstract Background Lines -->
+        <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, #8b5cf6 0, #8b5cf6 1px, transparent 0, transparent 50%); background-size: 20px 20px;"></div>
+        
+        <div class="max-w-4xl mx-auto reveal relative z-10">
+            <h2 class="text-4xl md:text-5xl font-headline text-center mb-16 text-white">التركيب؟ <span class="text-gradient-magic">أسهل مما تتخيل</span></h2>
+            
+            <div class="relative">
+                <!-- Vertical Line -->
+                <div class="hidden md:block absolute top-0 bottom-0 right-[50%] w-1 bg-slate-800 rounded-full transform translate-x-1/2"></div>
+                
+                <!-- Step 1 -->
+                <div class="flex flex-col md:flex-row items-center justify-between mb-12 relative">
+                    <div class="w-full md:w-[45%] text-center md:text-left order-2 md:order-1">
+                        <h4 class="text-2xl font-headline text-white mb-2">توصيل بالكهرباء ⚡</h4>
+                        <p class="text-slate-400 font-bold text-sm">ضعه في مأخذ كهربائي قريب من الموزع الرئيسي (المودام) للبرمجة الأولية.</p>
+                    </div>
+                    <div class="w-16 h-16 bg-slate-900 border-4 border-violet-500 rounded-full flex items-center justify-center text-2xl font-headline text-violet-400 shadow-[0_0_20px_rgba(139,92,246,0.4)] z-10 order-1 md:order-2 mb-4 md:mb-0">1</div>
+                    <div class="w-full md:w-[45%] order-3"></div>
                 </div>
 
-                <div class="relative z-10 glass-card p-6 border-t-4 border-t-sky-500">
-                    <div class="w-16 h-16 bg-slate-800 border-2 border-sky-500 rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-5 shadow-[0_0_20px_rgba(14,165,233,0.3)]">1</div>
-                    <h4 class="text-xl font-black text-white mb-3">التوصيل بالكهرباء</h4>
-                    <p class="text-slate-400 font-medium text-sm leading-relaxed">قم بتوصيل الجهاز بأي مأخذ كهربائي في منتصف المسافة بين الموزع الرئيسي والغرفة الميتة.</p>
+                <!-- Step 2 -->
+                <div class="flex flex-col md:flex-row items-center justify-between mb-12 relative">
+                    <div class="w-full md:w-[45%] order-2 md:order-1"></div>
+                    <div class="w-16 h-16 bg-slate-900 border-4 border-pink-500 rounded-full flex items-center justify-center text-2xl font-headline text-pink-400 shadow-[0_0_20px_rgba(236,72,153,0.4)] z-10 order-1 md:order-2 mb-4 md:mb-0">2</div>
+                    <div class="w-full md:w-[45%] text-center md:text-right order-3">
+                        <h4 class="text-2xl font-headline text-white mb-2">الاقتران الذكي WPS 🔄</h4>
+                        <p class="text-slate-400 font-bold text-sm">اضغط على زر (WPS) في المودام الخاص بك، ثم اضغط على نفس الزر في المقوي.</p>
+                    </div>
                 </div>
 
-                <div class="relative z-10 glass-card p-6 border-t-4 border-t-emerald-500">
-                    <div class="w-16 h-16 bg-slate-800 border-2 border-emerald-500 rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-5 shadow-[0_0_20px_rgba(16,185,129,0.3)]">2</div>
-                    <h4 class="text-xl font-black text-white mb-3">الاقتران بضغطة زر</h4>
-                    <p class="text-slate-400 font-medium text-sm leading-relaxed">اضغط على زر (WPS) الموجود في الموزع الرئيسي لديك، ثم اضغط على نفس الزر في مقوي الإشارة.</p>
-                </div>
-
-                <div class="relative z-10 glass-card p-6 border-t-4 border-t-purple-500">
-                    <div class="w-16 h-16 bg-slate-800 border-2 border-purple-500 rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-5 shadow-[0_0_20px_rgba(168,85,247,0.3)]">3</div>
-                    <h4 class="text-xl font-black text-white mb-3">استمتع بالتغطية</h4>
-                    <p class="text-slate-400 font-medium text-sm leading-relaxed">تم التوصيل بنجاح! يمكنك الآن الاستمتاع بإنترنت سريع ومستقر في كامل أنحاء منزلك.</p>
+                <!-- Step 3 -->
+                <div class="flex flex-col md:flex-row items-center justify-between relative">
+                    <div class="w-full md:w-[45%] text-center md:text-left order-2 md:order-1">
+                        <h4 class="text-2xl font-headline text-white mb-2">انقله واستمتع 🚀</h4>
+                        <p class="text-slate-400 font-bold text-sm">انقل الجهاز لأي مأخذ في منتصف الطريق بين المودام والغرفة الضعيفة واستمتع بالإنترنت.</p>
+                    </div>
+                    <div class="w-16 h-16 bg-slate-900 border-4 border-emerald-500 rounded-full flex items-center justify-center text-2xl font-headline text-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.4)] z-10 order-1 md:order-2 mb-4 md:mb-0">3</div>
+                    <div class="w-full md:w-[45%] order-3"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. SOCIAL PROOF -->
-    <section class="py-16 px-5 bg-slate-800/30 border-y border-slate-800">
-        <div class="text-center mb-12 js-reveal">
-            <h2 class="text-3xl md:text-4xl font-black text-white mb-4">عملاء يثقون بجودتنا 🌟</h2>
-            <p class="text-slate-400 text-lg font-medium">شهادات حقيقية من زبائننا في مختلف الولايات</p>
+    <!-- 5. ADVANCED SOCIAL PROOF (WhatsApp Style / Premium Cards) -->
+    <section class="py-20 px-5 bg-slate-900/60 border-y border-slate-800">
+        <div class="text-center mb-16 reveal">
+            <h2 class="text-4xl md:text-5xl font-headline text-white mb-4">آراء زبائننا <span class="text-gradient-gold">الكرام</span> ⭐</h2>
+            <p class="text-slate-400 text-sm md:text-base font-bold">نفخر بخدمة أكثر من 1500 عميل راضٍ في 58 ولاية جزائرية</p>
         </div>
         
-        <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
-            <div class="glass-card p-6 js-reveal">
-                <div class="flex items-center gap-4 mb-4 border-b border-slate-700 pb-4">
-                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?fit=crop&w=100&h=100" class="w-12 h-12 rounded-full object-cover border-2 border-sky-500" alt="Khaled">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+            <!-- Realistic Review 1 -->
+            <div class="glass-card p-6 reveal relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-20 h-20 bg-emerald-500/10 rounded-bl-full -z-10"></div>
+                <div class="flex items-center gap-4 mb-5 border-b border-slate-700/50 pb-4">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?fit=crop&w=100&h=100" class="w-14 h-14 rounded-full object-cover border-2 border-slate-600" alt="Reviewer">
                     <div>
-                        <p class="font-bold text-white">خالد (وهران)</p>
-                        <div class="text-emerald-400 text-xs tracking-widest mt-1">★★★★★ <span class="text-slate-400 font-normal mr-1">مشتري مؤكد</span></div>
+                        <p class="font-bold text-white text-base">خالد.م (وهران)</p>
+                        <div class="flex items-center gap-2 mt-1">
+                            <span class="text-amber-400 text-sm">★★★★★</span>
+                            <span class="text-emerald-400 text-[10px] font-bold bg-emerald-500/10 px-2 py-0.5 rounded">مشتري مؤكد ✓</span>
+                        </div>
                     </div>
                 </div>
-                <p class="text-slate-300 text-sm font-medium leading-relaxed">
-                    "الجهاز أثبت فعاليته بشكل ممتاز. قمت بتوصيله عبر كابل RJ45 للحاسوب، وسرعة التحميل أصبحت مستقرة جداً. خدمة التوصيل كانت في الموعد."
+                <p class="text-slate-300 text-sm font-bold leading-loose">
+                    "الجهاز حل مشكلة كبيرة عندي. المودام في الصالون والبيت تاعي الفوق، الأنترنت كانت ميتة. غير ركبت هاد المقوي رجعت 4 شلطات كاملين! يعطيك الصحة خدمة نقية."
                 </p>
             </div>
 
-            <div class="glass-card p-6 js-reveal">
-                <div class="flex items-center gap-4 mb-4 border-b border-slate-700 pb-4">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?fit=crop&w=100&h=100" class="w-12 h-12 rounded-full object-cover border-2 border-purple-500" alt="Amina">
+            <!-- Realistic Review 2 -->
+            <div class="glass-card p-6 reveal relative overflow-hidden" style="transition-delay: 0.1s;">
+                <div class="absolute top-0 right-0 w-20 h-20 bg-emerald-500/10 rounded-bl-full -z-10"></div>
+                <div class="flex items-center gap-4 mb-5 border-b border-slate-700/50 pb-4">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?fit=crop&w=100&h=100" class="w-14 h-14 rounded-full object-cover border-2 border-slate-600" alt="Reviewer">
                     <div>
-                        <p class="font-bold text-white">أمينة (الجزائر العاصمة)</p>
-                        <div class="text-emerald-400 text-xs tracking-widest mt-1">★★★★★ <span class="text-slate-400 font-normal mr-1">مشتري مؤكد</span></div>
+                        <p class="font-bold text-white text-base">سارة.ب (الجزائر العاصمة)</p>
+                        <div class="flex items-center gap-2 mt-1">
+                            <span class="text-amber-400 text-sm">★★★★★</span>
+                            <span class="text-emerald-400 text-[10px] font-bold bg-emerald-500/10 px-2 py-0.5 rounded">مشتري مؤكد ✓</span>
+                        </div>
                     </div>
                 </div>
-                <p class="text-slate-300 text-sm font-medium leading-relaxed">
-                    "كنت أواجه صعوبة في وصول الإنترنت للمطبخ وغرفة النوم. التركيب كان بغاية السهولة كما هو موضح، والآن الإشارة ممتلئة في كل المنزل."
+                <p class="text-slate-300 text-sm font-bold leading-loose">
+                    "التوصيل مجاني ووصلني للدار في يومين. ركبته وحدي ساهل بزاف غير بالـ WPS، والكونيكسيو ولات خفيفة في الكوزينة و لي شومبر. روعة صراحة أنصح به."
                 </p>
             </div>
 
-            <div class="glass-card p-6 js-reveal">
-                <div class="flex items-center gap-4 mb-4 border-b border-slate-700 pb-4">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=100&h=100" class="w-12 h-12 rounded-full object-cover border-2 border-emerald-500" alt="Samir">
+            <!-- Realistic Review 3 -->
+            <div class="glass-card p-6 reveal relative overflow-hidden" style="transition-delay: 0.2s;">
+                <div class="absolute top-0 right-0 w-20 h-20 bg-emerald-500/10 rounded-bl-full -z-10"></div>
+                <div class="flex items-center gap-4 mb-5 border-b border-slate-700/50 pb-4">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=100&h=100" class="w-14 h-14 rounded-full object-cover border-2 border-slate-600" alt="Reviewer">
                     <div>
-                        <p class="font-bold text-white">سمير (سطيف)</p>
-                        <div class="text-emerald-400 text-xs tracking-widest mt-1">★★★★☆ <span class="text-slate-400 font-normal mr-1">مشتري مؤكد</span></div>
+                        <p class="font-bold text-white text-base">رياض.ع (سطيف)</p>
+                        <div class="flex items-center gap-2 mt-1">
+                            <span class="text-amber-400 text-sm">★★★★☆</span>
+                            <span class="text-emerald-400 text-[10px] font-bold bg-emerald-500/10 px-2 py-0.5 rounded">مشتري مؤكد ✓</span>
+                        </div>
                     </div>
                 </div>
-                <p class="text-slate-300 text-sm font-medium leading-relaxed">
-                    "حل مثالي لمشكلة انقطاع قنوات الـ IPTV في المساء. جودة التصنيع جيدة جداً، والتغليف كان ممتازاً. أنصح به لأصحاب المنازل ذات الطابقين."
+                <p class="text-slate-300 text-sm font-bold leading-loose">
+                    "نلعب بزاف أونلاين والـ Ping كان ديما طالع يمرض. ركبت الكابل RJ45 مع هاد المقوي مباشرة للـ PC، الفرق شاسع جداً. السعر ممتاز مقارنة بالجودة العالية."
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- 5. ACTION (Checkout Form) -->
-    <section id="order-form" class="py-20 px-5 relative">
-        <div class="max-w-md mx-auto glass-card rounded-[2rem] p-6 md:p-8 border-t-4 border-t-emerald-500 relative z-10 js-reveal">
+    <!-- 6. ACTION (Advanced Checkout Page Layout) -->
+    <section id="order-form" class="py-20 px-5 relative z-10 bg-slate-950">
+        
+        <div class="max-w-xl mx-auto glass-card rounded-[2.5rem] p-6 md:p-10 border-t-4 border-t-gold-action relative z-20 reveal shadow-2xl">
             
-            <div class="text-center mb-8">
-                <h2 class="text-2xl md:text-3xl font-black text-white mb-2">طلب المنتج الآن</h2>
-                <p class="text-slate-400 text-sm font-medium mb-6">الرجاء إدخال معلوماتك وسنتصل بك لتأكيد الشحن</p>
+            <!-- Urgency Timer -->
+            <div class="bg-rose-500/10 border border-rose-500/30 text-rose-400 text-center py-3 rounded-2xl mb-8 font-bold flex items-center justify-center gap-3">
+                <svg class="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span>عرض التوصيل المجاني ينتهي خلال: <span id="countdown" class="font-black tracking-wider text-lg ml-1">14:59</span></span>
+            </div>
+
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-headline text-white mb-2">أكمل طلبك الآن</h2>
+                <p class="text-slate-400 text-sm font-bold mb-6">املأ البيانات أدناه وسنتصل بك لتأكيد الشحن</p>
                 
-                <div class="bg-slate-800/80 px-6 py-4 rounded-2xl border border-slate-700 flex flex-col items-center justify-center">
-                    <div class="flex items-end gap-2 mb-1">
-                        <span class="text-emerald-400 text-3xl font-black">4900</span>
-                        <span class="text-emerald-400 font-bold mb-1">دج</span>
+                <!-- Order Summary Box -->
+                <div class="bg-slate-900/80 px-6 py-5 rounded-2xl border border-slate-700/50 flex flex-col items-center justify-center shadow-inner">
+                    <p class="text-slate-300 font-bold mb-2">ملخص الطلب:</p>
+                    <div class="flex items-end gap-2 mb-3">
+                        <span class="text-amber-400 text-5xl font-headline">4900</span>
+                        <span class="text-amber-400 font-bold mb-2">دج</span>
                     </div>
-                    <span class="text-sky-400 text-sm font-bold bg-sky-900/40 px-3 py-1 rounded-full border border-sky-500/20">
-                        التوصيل مجاني لـ 58 ولاية 🚚
+                    <span class="text-emerald-400 text-sm font-bold bg-emerald-950/40 px-4 py-1.5 rounded-full border border-emerald-500/20">
+                        التوصيل مجاني 🚚 | الدفع عند الاستلام 🤝
                     </span>
                 </div>
             </div>
 
-            <!-- THE FORM -->
-            <form id="orderForm" class="space-y-5">
+            <!-- THE ADVANCED FORM -->
+            <form id="orderForm">
+                
+                <!-- HIDDEN INPUTS FOR GOOGLE SHEETS -->
                 <input type="hidden" name="product" value="Aigital WiFi Repeater 300Mbps">
                 <input type="hidden" name="price" value="4900 دج">
 
-                <div>
-                    <label class="block text-slate-300 text-sm font-bold mb-2 pr-1">الاسم واللقب <span class="text-red-400">*</span></label>
-                    <input type="text" name="name" required placeholder="أدخل اسمك الكامل" class="input-elegant w-full px-5 py-4 rounded-xl text-base font-medium" autocomplete="name">
+                <div class="input-group">
+                    <input type="text" name="name" id="name" required placeholder=" " class="input-advanced" autocomplete="name">
+                    <label for="name" class="input-label">الاسم واللقب <span class="text-pink-500">*</span></label>
                 </div>
                 
-                <div>
-                    <label class="block text-slate-300 text-sm font-bold mb-2 pr-1">رقم الهاتف <span class="text-red-400">*</span></label>
-                    <input type="tel" name="phone" required placeholder="05/06/07 XX XX XX" class="input-elegant w-full px-5 py-4 rounded-xl text-base font-medium text-left" dir="ltr" autocomplete="tel">
+                <div class="input-group">
+                    <input type="tel" name="phone" id="phone" required placeholder=" " class="input-advanced text-left" dir="ltr" autocomplete="tel">
+                    <label for="phone" class="input-label">رقم الهاتف (05/06/07) <span class="text-pink-500">*</span></label>
                 </div>
 
                 <div class="flex gap-4">
-                    <div class="w-1/2">
-                        <label class="block text-slate-300 text-sm font-bold mb-2 pr-1">الولاية <span class="text-red-400">*</span></label>
-                        <input type="text" name="wilaya" required placeholder="ولايتك" class="input-elegant w-full px-5 py-4 rounded-xl text-base font-medium">
+                    <div class="input-group w-1/2">
+                        <input type="text" name="wilaya" id="wilaya" required placeholder=" " class="input-advanced">
+                        <label for="wilaya" class="input-label">الولاية <span class="text-pink-500">*</span></label>
                     </div>
-                    <div class="w-1/2">
-                        <label class="block text-slate-300 text-sm font-bold mb-2 pr-1">البلدية <span class="text-red-400">*</span></label>
-                        <input type="text" name="address" required placeholder="البلدية" class="input-elegant w-full px-5 py-4 rounded-xl text-base font-medium">
+                    <div class="input-group w-1/2">
+                        <input type="text" name="address" id="address" required placeholder=" " class="input-advanced">
+                        <label for="address" class="input-label">البلدية <span class="text-pink-500">*</span></label>
                     </div>
                 </div>
 
-                <button type="submit" id="submitBtn" class="w-full btn-buy text-white font-black text-xl py-5 rounded-xl mt-6 transition-all flex justify-center items-center gap-3">
+                <button type="submit" id="submitBtn" class="w-full btn-gold text-slate-900 font-headline text-3xl py-5 rounded-2xl mt-4 flex justify-center items-center gap-3">
                     <span id="btnText">تأكيد الطلب الآن</span>
                     <div id="loader" class="loader"></div>
                 </button>
             </form>
 
-            <div id="successMessage" class="hidden text-center py-8">
-                <div class="w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-5 border-2 border-emerald-500">
-                    <svg class="w-10 h-10 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <!-- Success Message -->
+            <div id="successMessage" class="hidden text-center py-10">
+                <div class="w-24 h-24 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-6 border-4 border-emerald-500">
+                    <svg class="w-12 h-12 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                 </div>
-                <h3 class="text-2xl font-black text-emerald-400 mb-2">تم تسجيل طلبك بنجاح</h3>
-                <p class="text-slate-300 font-medium text-sm leading-relaxed">شكراً لثقتك بنا. سيقوم فريق الدعم بالاتصال بك قريباً لتأكيد عنوان الشحن.</p>
+                <h3 class="text-3xl font-headline text-emerald-400 mb-3">تم تسجيل طلبك بنجاح!</h3>
+                <p class="text-slate-300 font-bold text-base leading-relaxed">شكراً لثقتك بنا. سيقوم فريق المبيعات بالاتصال بك قريباً لتأكيد تفاصيل الشحن وإرسال المنتج.</p>
             </div>
 
-            <div class="mt-8 pt-6 border-t border-slate-700 flex justify-center gap-6 md:gap-8 opacity-80">
+            <!-- Premium Trust Badges -->
+            <div class="mt-10 pt-6 border-t border-slate-800 flex justify-center gap-8 opacity-60">
                 <div class="flex flex-col items-center">
-                    <svg class="w-6 h-6 text-slate-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                    <span class="text-[10px] md:text-xs font-bold text-slate-300">منتج أصلي</span>
+                    <svg class="w-8 h-8 text-slate-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <span class="text-[11px] font-bold text-slate-400">أصلي 100%</span>
                 </div>
                 <div class="flex flex-col items-center">
-                    <svg class="w-6 h-6 text-slate-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
-                    <span class="text-[10px] md:text-xs font-bold text-slate-300">استبدال مجاني</span>
+                    <svg class="w-8 h-8 text-slate-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                    <span class="text-[11px] font-bold text-slate-400">ضمان الاستبدال</span>
                 </div>
                 <div class="flex flex-col items-center">
-                    <svg class="w-6 h-6 text-slate-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                    <span class="text-[10px] md:text-xs font-bold text-slate-300">الدفع عند الاستلام</span>
+                    <svg class="w-8 h-8 text-slate-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <span class="text-[11px] font-bold text-slate-400">الدفع عند الاستلام</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Sticky Mobile CTA -->
-    <div class="fixed bottom-0 left-0 w-full bg-slate-900/95 backdrop-blur-xl border-t border-slate-800 p-4 z-40 flex justify-between items-center md:hidden shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
-        <div class="flex flex-col pl-2">
-            <span class="text-white font-black text-xl leading-none mb-1">4900 دج</span>
-            <span class="text-emerald-400 font-bold text-[10px]">توصيل مجاني 🚚</span>
+    <div class="fixed bottom-0 left-0 w-full bg-slate-950/95 backdrop-blur-xl border-t border-slate-800 p-3 z-40 flex justify-between items-center md:hidden shadow-[0_-15px_40px_rgba(0,0,0,0.8)]">
+        <div class="flex flex-col pl-3">
+            <span class="text-amber-500 font-headline text-2xl leading-none mb-1">4900 دج</span>
+            <span class="text-emerald-400 font-bold text-[10px] tracking-wide">توصيل مجاني 🚚</span>
         </div>
-        <a href="#order-form" class="btn-buy text-white px-8 py-3 rounded-xl font-bold text-base transition-transform">
+        <a href="#order-form" class="btn-gold px-8 py-3 rounded-xl font-headline text-xl text-slate-900 transition-transform">
             أطلب الآن
         </a>
     </div>
 
-    <!-- Live Sales Popup -->
-    <div id="live-sales-popup" class="fixed bottom-24 left-4 z-30 bg-slate-800/90 backdrop-blur-md border border-slate-700 rounded-xl p-3 flex items-center gap-3 shadow-xl transition-all duration-500 translate-y-20 opacity-0 pointer-events-none">
-        <div class="bg-emerald-500/20 p-2 rounded-full">
-            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
-        </div>
-        <div>
-            <p id="popup-name" class="text-white text-xs font-bold">تم طلب المنتج من طرف..</p>
-            <p class="text-emerald-400 text-[10px] font-bold mt-0.5">منذ بضع دقائق</p>
-        </div>
-    </div>
-
     <!-- JavaScript Logic -->
     <script>
-        // 1. Scroll Reveals
-        const reveals = document.querySelectorAll(".js-reveal");
+        // 1. Scroll Reveals Animation
+        const reveals = document.querySelectorAll(".reveal");
         const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -20px 0px" };
         const revealOnScroll = new IntersectionObserver(function(entries, observer) {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
-                entry.target.classList.add("is-visible");
+                entry.target.classList.add("active");
                 observer.unobserve(entry.target);
             });
         }, revealOptions);
         reveals.forEach(reveal => { revealOnScroll.observe(reveal); });
 
-        // 2. Google Sheets & TIKTOK PIXEL Logic
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwBBFuHmwCbK5S1R4wrg9j2Memsi5XtHXmy6ETXFGFkmnBBlTTmGcHskyhYPH2vX4V3hw/exec'; // <-- حط الرابط تاع الـ Apps Script تاعك هنا
+        // 2. Countdown Timer
+        let time = 14 * 60 + 59;
+        const countdownEl = document.getElementById('countdown');
+        setInterval(() => {
+            if(time <= 0) return;
+            time--;
+            let minutes = Math.floor(time / 60);
+            let seconds = time % 60;
+            countdownEl.innerHTML = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }, 1000);
+
+        // 3. Fake Live Push Notifications (iOS Style)
+        const buyers = [
+            { name: "أمين من سطيف", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=100&h=100" },
+            { name: "سارة من العاصمة", img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?fit=crop&w=100&h=100" },
+            { name: "إسلام من وهران", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?fit=crop&w=100&h=100" },
+            { name: "مريم من البليدة", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?fit=crop&w=100&h=100" },
+            { name: "طارق من عنابة", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?fit=crop&w=100&h=100" }
+        ];
+        const pushNoti = document.getElementById('push-noti');
+        const notiName = document.getElementById('noti-name');
+        const notiImg = document.getElementById('noti-img');
+
+        function showNotification() {
+            const randomBuyer = buyers[Math.floor(Math.random() * buyers.length)];
+            notiName.innerHTML = randomBuyer.name;
+            notiImg.src = randomBuyer.img;
+            pushNoti.classList.add('show');
+            setTimeout(() => { pushNoti.classList.remove('show'); }, 5000);
+        }
+        setTimeout(() => {
+            showNotification();
+            setInterval(showNotification, Math.floor(Math.random() * (30000 - 15000 + 1) + 15000));
+        }, 6000);
+
+        // ==========================================
+        // 4. GOOGLE SHEETS & PIXEL TRACKING LOGIC
+        // ==========================================
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwBBFuHmwCbK5S1R4wrg9j2Memsi5XtHXmy6ETXFGFkmnBBlTTmGcHskyhYPH2vX4V3hw/exec';
+        
         const form = document.getElementById('orderForm');
         const submitBtn = document.getElementById('submitBtn');
         const btnText = document.getElementById('btnText');
@@ -350,54 +538,31 @@
             btnText.textContent = 'جاري التأكيد...';
             loader.style.display = 'block';
             submitBtn.disabled = true;
-            submitBtn.style.opacity = '0.7';
+            submitBtn.style.opacity = '0.8';
 
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                 .then(response => {
                     form.style.display = 'none';
                     successMessage.classList.remove('hidden');
                     
-                    // ==========================================
-                    // TIKTOK PIXEL CONVERSION EVENT (CompletePayment)
-                    // ==========================================
-                    if(typeof ttq !== 'undefined') {
-                        ttq.track('CompletePayment', {
-                            content_name: 'Aigital WiFi Repeater 300Mbps',
-                            value: 4900,
-                            currency: 'DZD'
-                        });
+                    // FIRE META PIXEL
+                    if(typeof fbq !== 'undefined') {
+                        fbq('track', 'Purchase', { value: 4900.00, currency: 'DZD', content_name: 'Aigital WiFi Repeater 300Mbps' });
                     }
-                    // ==========================================
+
+                    // FIRE TIKTOK PIXEL
+                    if(typeof ttq !== 'undefined') {
+                        ttq.track('CompletePayment', { content_name: 'Aigital WiFi Repeater 300Mbps', value: 4900, currency: 'DZD' });
+                    }
                 })
                 .catch(error => {
-                    alert('عذراً، حدث خطأ أثناء الاتصال. يرجى المحاولة مرة أخرى.');
+                    alert('عذراً، حدث خطأ أثناء الاتصال. يرجى التأكد من جودة الإنترنت والمحاولة مرة أخرى.');
                     btnText.textContent = 'تأكيد الطلب الآن';
                     loader.style.display = 'none';
                     submitBtn.disabled = false;
                     submitBtn.style.opacity = '1';
                 });
         });
-
-        // 3. Subtle Live Sales Popup
-        const buyers = ["إسلام من وهران", "أمين من سطيف", "عماد من الجزائر العاصمة", "سفيان من باتنة", "يونس من بجاية", "طارق من عنابة"];
-        const popup = document.getElementById('live-sales-popup');
-        const popupName = document.getElementById('popup-name');
-
-        function showRandomPurchase() {
-            const randomBuyer = buyers[Math.floor(Math.random() * buyers.length)];
-            popupName.innerHTML = `تم طلب المنتج من طرف ${randomBuyer}`;
-            popup.style.transform = 'translateY(0)';
-            popup.style.opacity = '1';
-            setTimeout(() => { 
-                popup.style.transform = 'translateY(20px)';
-                popup.style.opacity = '0';
-            }, 5000);
-        }
-
-        setTimeout(() => {
-            showRandomPurchase();
-            setInterval(showRandomPurchase, Math.floor(Math.random() * (25000 - 15000 + 1) + 15000));
-        }, 5000);
     </script>
 </body>
 </html>
